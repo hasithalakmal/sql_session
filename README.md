@@ -692,14 +692,14 @@ ORDER BY purchase_date DESC;
 ```sql
 SELECT 
     cust.customer_id,
-    cust.first_name || ' ' || cust.last_name AS customer_name,
-    DATE_TRUNC('month', c.purchase_date) AS month,
+    CONCAT(cust.first_name, ' ', cust.last_name) AS customer_name,
+    DATE_FORMAT(c.purchase_date, '%Y-%m-01') AS month,
     COUNT(c.purchase_id) AS monthly_purchases,
     SUM(c.quantity * p.unit_price) AS monthly_spending
 FROM customer cust
 INNER JOIN cart c ON cust.customer_id = c.customer_id
 INNER JOIN product p ON c.product_id = p.product_id
-GROUP BY cust.customer_id, cust.first_name, cust.last_name, DATE_TRUNC('month', c.purchase_date)
+GROUP BY cust.customer_id, cust.first_name, cust.last_name, DATE_FORMAT(c.purchase_date, '%Y-%m-01')
 ORDER BY customer_name, month DESC;
 ```
 
@@ -708,12 +708,12 @@ ORDER BY customer_name, month DESC;
 ```sql
 SELECT 
     customer_id,
-    customer_first_name || ' ' || customer_last_name AS customer_name,
-    DATE_TRUNC('month', purchase_date) AS month,
+    CONCAT(customer_first_name, ' ', customer_last_name) AS customer_name,
+    DATE_FORMAT(purchase_date, '%Y-%m-01') AS month,
     COUNT(purchase_id) AS monthly_purchases,
     SUM(quantity * unit_price) AS monthly_spending
 FROM supermarket_transactions
-GROUP BY customer_id, customer_first_name, customer_last_name, DATE_TRUNC('month', purchase_date)
+GROUP BY customer_id, customer_first_name, customer_last_name, DATE_FORMAT(purchase_date, '%Y-%m-01')
 ORDER BY customer_name, month DESC;
 ```
 
