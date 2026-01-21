@@ -1130,7 +1130,7 @@ ORDER BY items_in_transaction DESC, t1.purchase_date DESC;
 ```sql
 SELECT 
     cust.customer_id,
-    cust.first_name || ' ' || cust.last_name AS customer_name,
+    CONCAT(cust.first_name, ' ', cust.last_name) AS customer_name,
     p.product_id,
     p.description AS product,
     COUNT(c.purchase_id) AS times_purchased,
@@ -1148,7 +1148,7 @@ ORDER BY times_purchased DESC, customer_name;
 ```sql
 SELECT 
     customer_id,
-    customer_first_name || ' ' || customer_last_name AS customer_name,
+    CONCAT(customer_first_name, ' ', customer_last_name) AS customer_name,
     product_description AS product,
     COUNT(purchase_id) AS times_purchased,
     SUM(quantity) AS total_quantity

@@ -499,4 +499,33 @@ INSERT INTO cart (purchase_id, transaction_id, customer_id, cashier_id, product_
 (1232, 7032, 377, 'C03', 17, 4, TRUE, 0.05, 'Loyalty Discount', '2026-01-15', '15:20:00', 'Cash', 'Downtown'),
 (1233, 7033, 420, 'C04', 17, 2, FALSE, NULL, NULL, '2026-01-16', '17:45:00', 'Debit Card', 'Mall Side'),
 (1234, 7034, 510, 'C05', 17, 3, FALSE, NULL, NULL, '2026-01-17', '09:00:00', 'Credit Card', 'Airport'),
-(1235, 7035, 845, 'C01', 17, 2, FALSE, NULL, NULL, '2026-01-18', '13:30:00', 'Cash', 'Downtown');
+(1235, 7035, 845, 'C01', 17, 2, FALSE, NULL, NULL, '2026-01-18', '13:30:00', 'Cash', 'Downtown'),
+-- Additional purchases for repeat product purchases (same customer, same product, different dates)
+-- Customer 22 buying product 1 (Milk) multiple times
+(1236, 8001, 22, 'C01', 1, 1, FALSE, NULL, NULL, '2026-01-19', '10:00:00', 'Credit Card', 'Downtown'),
+(1237, 8002, 22, 'C01', 1, 2, FALSE, NULL, NULL, '2026-01-25', '14:30:00', 'Debit Card', 'Downtown'),
+(1238, 8003, 22, 'C01', 1, 1, TRUE, 0.1, 'Weekly Sale', '2026-02-01', '11:15:00', 'Credit Card', 'Downtown'),
+-- Customer 192 buying product 4 (Coffee) multiple times
+(1239, 8004, 192, 'C03', 4, 1, FALSE, NULL, NULL, '2026-01-20', '09:30:00', 'App', 'Downtown'),
+(1240, 8005, 192, 'C03', 4, 1, TRUE, 0.15, 'Loyalty Discount', '2026-01-27', '15:45:00', 'Credit Card', 'Downtown'),
+(1241, 8006, 192, 'C03', 4, 1, FALSE, NULL, NULL, '2026-02-03', '10:20:00', 'Debit Card', 'Downtown'),
+-- Customer 201 buying product 8 (Greek Yogurt) multiple times
+(1242, 8007, 201, 'C02', 8, 2, FALSE, NULL, NULL, '2026-01-21', '16:00:00', 'Credit Card', 'Mall Side'),
+(1243, 8008, 201, 'C02', 8, 3, FALSE, NULL, NULL, '2026-01-28', '17:30:00', 'Credit Card', 'Mall Side'),
+(1244, 8009, 201, 'C02', 8, 2, TRUE, 0.05, 'Loyalty Discount', '2026-02-04', '18:00:00', 'Debit Card', 'Mall Side'),
+-- Customer 377 buying product 17 (Bottled Water) multiple times
+(1245, 8010, 377, 'C03', 17, 4, FALSE, NULL, NULL, '2026-01-22', '08:15:00', 'Cash', 'Downtown'),
+(1246, 8011, 377, 'C03', 17, 6, FALSE, NULL, NULL, '2026-01-29', '09:00:00', 'App', 'Downtown'),
+(1247, 8012, 377, 'C03', 17, 5, TRUE, 0.1, 'Weekly Sale', '2026-02-05', '10:30:00', 'Debit Card', 'Downtown'),
+-- Customer 420 buying product 3 (Bread) multiple times
+(1248, 8013, 420, 'C04', 3, 1, FALSE, NULL, NULL, '2026-01-23', '19:00:00', 'Credit Card', 'Mall Side'),
+(1249, 8014, 420, 'C04', 3, 1, FALSE, NULL, NULL, '2026-01-30', '20:15:00', 'Debit Card', 'Mall Side'),
+(1250, 8015, 420, 'C04', 3, 2, TRUE, 0.2, 'Weekly Sale', '2026-02-06', '18:45:00', 'Credit Card', 'Mall Side'),
+-- Customer 510 buying product 5 (Eggs) multiple times
+(1251, 8016, 510, 'C05', 5, 1, FALSE, NULL, NULL, '2026-01-24', '07:30:00', 'Credit Card', 'Airport'),
+(1252, 8017, 510, 'C05', 5, 2, FALSE, NULL, NULL, '2026-01-31', '08:00:00', 'Cash', 'Airport'),
+(1253, 8018, 510, 'C05', 5, 1, FALSE, NULL, NULL, '2026-02-07', '06:45:00', 'Debit Card', 'Airport'),
+-- Customer 845 buying product 2 (Apples) multiple times
+(1254, 8019, 845, 'C01', 2, 3, FALSE, NULL, NULL, '2026-01-25', '12:00:00', 'Cash', 'Downtown'),
+(1255, 8020, 845, 'C01', 2, 4, TRUE, 0.1, 'Seasonal', '2026-02-01', '13:20:00', 'Credit Card', 'Downtown'),
+(1256, 8021, 845, 'C01', 2, 2, FALSE, NULL, NULL, '2026-02-08', '14:00:00', 'Debit Card', 'Downtown');
