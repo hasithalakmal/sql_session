@@ -1026,7 +1026,9 @@ ORDER BY purchase_date DESC, daily_revenue DESC;
 ```sql
 SELECT DISTINCT
     cust.customer_id,
-    cust.first_name || ' ' || cust.last_name AS customer_name,
+    cust.first_name,
+    cust.last_name,
+    CONCAT(cust.first_name, ' ', cust.last_name) AS customer_name,
     cust.phone_number
 FROM customer cust
 INNER JOIN cart c ON cust.customer_id = c.customer_id
@@ -1040,7 +1042,9 @@ ORDER BY cust.last_name, cust.first_name;
 ```sql
 SELECT DISTINCT
     customer_id,
-    customer_first_name || ' ' || customer_last_name AS customer_name,
+    customer_first_name,
+    customer_last_name,
+    CONCAT(customer_first_name, ' ', customer_last_name) AS customer_name,
     customer_phone_number AS phone_number
 FROM supermarket_transactions
 WHERE category = 'Dairy'
