@@ -1058,9 +1058,9 @@ ORDER BY customer_last_name, customer_first_name;
 ```sql
 SELECT 
     cust.customer_id,
-    cust.first_name || ' ' || cust.last_name AS customer_name,
+    CONCAT(cust.first_name, ' ', cust.last_name) AS customer_name,
     COUNT(DISTINCT p.category) AS categories_purchased,
-    STRING_AGG(DISTINCT p.category, ', ') AS categories_list
+    GROUP_CONCAT(DISTINCT p.category ORDER BY p.category SEPARATOR ', ') AS categories_list
 FROM customer cust
 INNER JOIN cart c ON cust.customer_id = c.customer_id
 INNER JOIN product p ON c.product_id = p.product_id
@@ -1074,9 +1074,9 @@ ORDER BY categories_purchased DESC, customer_name;
 ```sql
 SELECT 
     customer_id,
-    customer_first_name || ' ' || customer_last_name AS customer_name,
+    CONCAT(customer_first_name, ' ', customer_last_name) AS customer_name,
     COUNT(DISTINCT category) AS categories_purchased,
-    STRING_AGG(DISTINCT category, ', ') AS categories_list
+    GROUP_CONCAT(DISTINCT category ORDER BY category SEPARATOR ', ') AS categories_list
 FROM supermarket_transactions
 GROUP BY customer_id, customer_first_name, customer_last_name
 HAVING COUNT(DISTINCT category) >= 3
